@@ -38,7 +38,7 @@ export default {
         })
         .then((response) => {
           console.log(response.data);
-          this.posts = response.data;
+          // this.posts = response.data;
         });
     },
   },
