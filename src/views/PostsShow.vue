@@ -6,7 +6,10 @@
       <p>Body: {{post.body}} </p>
       <p>Image URL: {{post.image}} </p>
       <img v-bind:src="post.image">
-      </div>
+      <br>
+      <router-link v-bind:to="`/posts/${this.$route.params.id}/edit`">Edit This Post</router-link>
+
+    </div>
   </div>
 </template>
 
