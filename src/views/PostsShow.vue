@@ -5,9 +5,14 @@
       <p>Title: {{post.title}} </p>
       <p>Body: {{post.body}} </p>
       <p>Image URL: {{post.image}} </p>
+      <p>User: {{post.user_id}} </p>
       <img v-bind:src="post.image">
       <br>
-      <router-link v-bind:to="`/posts/${this.$route.params.id}/edit`">Edit This Post</router-link>
+      <p>post.user_id: {{post.user_id}}</p>
+      <p>$parent.userId(): {{$parent.userId()}}</p>
+      <div v-if="post.user_id == $parent.userId()">
+        <router-link v-bind:to="`/posts/${this.$route.params.id}/edit`">Edit This Post</router-link>
+      </div>
 
     </div>
   </div>

@@ -10,9 +10,20 @@
       <router-link to="/posts">Posts</router-link> | 
       <router-link to="/posts/new">New Post</router-link>
     </div>
+
+    <div class="container">
+      <p v-if="userLoggedIn()">user is logged in</p>
+      <p>current user id: {{userId()}}</p>
+    </div>
+
     <router-view/>
+
   </div>
+
+  
+
 </template>
+
 
 <style>
 #app {
@@ -36,3 +47,21 @@
   color: #42b983;
 }
 </style>
+
+<script>
+export default {
+  methods: {
+    userLoggedIn: function () {
+      console.log("logged in");
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    userId: function () {
+      return localStorage.getItem("user_id");
+    },
+  },
+};
+</script>
